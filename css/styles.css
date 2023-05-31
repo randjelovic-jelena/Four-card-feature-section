@@ -1,0 +1,199 @@
+/*Poppins Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+:root{
+
+  /*colors*/
+  --col-dark-blue: hsl(234, 12%, 34%);
+  --col-grayish-blue: hsl(229, 6%, 66%);
+  --col-very-light-gray: hsl(0, 0%, 98%);
+  --col-white:#fff;
+
+  --col-red: hsl(0, 78%, 62%);
+  --col-cyan:  hsl(180, 62%, 55%);
+  --col-orange: hsl(34, 97%, 64%);
+  --col-blue: hsl(212, 86%, 64%);
+
+  /*radius*/
+  --radius:5px;
+
+}
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+p{
+  font-size: 15px;
+}
+body{
+  background-color:var(--col-very-light-gray);
+  padding: 25px;
+}
+.container{
+  margin: 0px auto;
+  max-width: 1315px;
+  padding: 4rem 4rem 0rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+/*----------------------------
+------------HEADER------------
+-----------------------------*/
+header{
+  text-align:center;
+  margin-bottom: 4rem;
+}
+.main-heading-light{
+  font-weight: 200;
+  color: var(--col-grayish-blue);
+}
+.main-heading-bold{
+  color: var(--col-dark-blue);
+}
+.main-text{
+  width: 70%;
+  margin: 10px auto;
+  color: var(--col-grayish-blue);
+}
+
+/*----------------------------
+-----MAIN CONTENT, TOOLS------
+-----------------------------*/
+/*BOXES*/
+.tools-box{
+  margin-bottom: 20px;
+  display: grid;
+  grid-gap: 1.9rem;
+  grid-template-areas: 'box1  box2  box3'
+                       'box1  box4  box3';
+}
+.column{
+  width: 100%;
+  border-radius: var(--radius);
+  position: relative;
+}
+.column::before{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 85%;
+  margin-inline: auto;
+  height: 50px;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 3px 0px 20px var(--col-grayish-blue);
+}
+.box{
+  padding: 2rem;
+  box-shadow: 0px 0px 3px hsl(234deg 12% 34% / 92%);
+  background-color: var(--col-white);
+  transition: all 0.5s ease-in-out;
+  display: grid;
+  align-content: space-between;
+  border-top: 5px solid;
+  border-radius: var(--radius);
+}
+.box-heading{
+  font-weight: 600;
+  color: var(--col-dark-blue);
+}
+.box-text{
+  font-size: 0.9rem;
+  color: var(--col-grayish-blue);
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.box-img{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+#card-1{
+  border-color: var(--col-cyan);
+}
+.first-column
+{
+  grid-area: box1;
+  align-self: center;
+}
+#card-2{
+  border-color: var(--col-red);
+}
+.second-column
+{
+  grid-area: box2;
+}
+.third-column
+{
+  grid-area: box3;
+  align-self: center;
+}
+#card-3
+{
+  border-color: var(--col-orange);
+}
+.fourth-column
+{
+  grid-area: box4;
+}
+#card-4{
+  border-color:var(--col-blue);
+}
+/*----------------------------
+------------MEDIA-------------
+-----------------------------*/
+@media (max-width:1050px){
+  .tools-box{
+    justify-items: center;
+    grid-template-areas: 
+    'box1  box2  '
+    'box3  box4  ';
+  }
+}
+@media (max-width:1100px){
+  .box{
+    height: 250px;
+  }
+  .tools-box{
+    flex-direction:column;
+  }
+}
+
+@media (max-width:810px){
+  .container{
+    padding: 1.2rem 0rem;
+    box-shadow: none;
+    margin-top: 0px;
+  }
+  .main-text{
+    width:95%;
+  }
+}
+@media (max-width:650px){
+  .tools-box{
+    grid-template-areas: 'box1'
+    'box2'
+    'box3'
+    'box4';
+  }
+  .main-text{
+    width:100%;
+  }
+  .main-heading-bold,
+  .main-heading-light{
+    font-size: 1.5rem;
+  }
+  .box-img img{
+    width: 53px;
+  }
+}
+@media (max-width:290px){
+  .box{
+    height: 275px;
+  }
+}
